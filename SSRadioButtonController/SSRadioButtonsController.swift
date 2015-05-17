@@ -58,7 +58,11 @@ class SSRadioButtonsController :NSObject
     {
         if(sender.selected)
         {
-            sender.selected = false
+            if let converted = sender as? SSRadioButton {
+                converted.toggleButon()
+            } else {
+                sender.selected = false
+            }
         }
         else
         {
@@ -66,7 +70,11 @@ class SSRadioButtonsController :NSObject
             {
                 if aButton != sender
                 {
-                    aButton.selected = false
+                    if let converted = aButton as? SSRadioButton {
+                        converted.toggleButon()
+                    } else {
+                        aButton.selected = false
+                    }
                 }
             }
             sender.selected = true
